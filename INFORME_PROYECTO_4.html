@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informe Proyecto 4 - AeroLista UNEMI</title>
+  <style>
+    :root {
+      --primary-navy: #1A2B4C;
+      --unemi-blue: #0B2545;
+      --unemi-orange: #F37021;
+      --text-dark: #2D3748;
+      --text-muted: #718096;
+      --bg-light: #F7FAFC;
+      --border-color: #E2E8F0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      color: var(--text-dark);
+      background-color: #ECEFF1;
+      line-height: 1.6;
+    }
+
+    .document-container {
+      max-width: 850px;
+      margin: 30px auto;
+      background: #FFFFFF;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    /* ==============================================================
+       PORTADA INSTITUCIONAL UNEMI
+       ============================================================== */
+    .cover-page {
+      min-height: 1050px;
+      padding: 50px 60px 0 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      background: #FFFFFF;
+      page-break-after: always;
+    }
+
+    .cover-header {
+      text-align: center;
+    }
+
+    .unemi-logo-container {
+      margin-bottom: 25px;
+    }
+
+    .unemi-logo-text {
+      font-size: 56px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: var(--primary-navy);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .unemi-sublogo {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      color: var(--primary-navy);
+      text-transform: uppercase;
+    }
+
+    .cover-faculty {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary-navy);
+      text-transform: uppercase;
+      margin-top: 35px;
+      letter-spacing: 1px;
+    }
+
+    .cover-career {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--primary-navy);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 5px;
+    }
+
+    .cover-body {
+      margin: 60px 0;
+      padding: 0 30px;
+    }
+
+    .meta-row {
+      display: flex;
+      margin-bottom: 20px;
+      font-size: 14.5px;
+      line-height: 1.5;
+    }
+
+    .meta-label {
+      width: 170px;
+      font-weight: 800;
+      color: var(--primary-navy);
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .meta-value {
+      font-weight: 500;
+      color: #333333;
+      flex-grow: 1;
+    }
+
+    .cover-location {
+      text-align: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--primary-navy);
+      letter-spacing: 1px;
+      margin-top: 40px;
+      margin-bottom: 30px;
+    }
+
+    .cover-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 25px;
+      font-size: 11.5px;
+      color: #4A5568;
+    }
+
+    .footer-address strong {
+      display: block;
+      color: #1A202C;
+      font-size: 12px;
+      margin-bottom: 3px;
+    }
+
+    .footer-web {
+      font-size: 17px;
+      color: #2D3748;
+    }
+
+    .footer-web strong {
+      color: #1A202C;
+      font-weight: 900;
+    }
+
+    .cover-bottom-bar {
+      height: 22px;
+      display: flex;
+      width: calc(100% + 120px);
+      margin-left: -60px;
+    }
+
+    .bar-navy {
+      width: 32%;
+      background: var(--primary-navy);
+    }
+
+    .bar-orange {
+      width: 68%;
+      background: var(--unemi-orange);
+    }
+
+    /* ==============================================================
+       CONTENIDO DEL INFORME TÉCNICO
+       ============================================================== */
+    .report-content {
+      padding: 60px;
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--primary-navy);
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: 26px;
+      border-bottom: 2px solid var(--unemi-orange);
+      padding-bottom: 12px;
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      font-size: 20px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+      margin-top: 40px;
+      margin-bottom: 18px;
+    }
+
+    h3 {
+      font-size: 16px;
+      margin-top: 25px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      text-align: justify;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 13.5px;
+    }
+
+    th, td {
+      border: 1px solid var(--border-color);
+      padding: 10px 14px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #EDF2F7;
+      color: var(--primary-navy);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #F7FAFC;
+    }
+
+    .badge-ok {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      background-color: #C6F6D5;
+      color: #22543D;
+    }
+
+    pre, code {
+      font-family: 'Consolas', 'Courier New', Courier, monospace;
+    }
+
+    code {
+      background-color: #EDF2F7;
+      color: #C53030;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-size: 12.5px;
+    }
+
+    pre {
+      background-color: #1A202C;
+      color: #F7FAFC;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin: 18px 0;
+      font-size: 12.5px;
+      line-height: 1.5;
+    }
+
+    .diagram-box {
+      background-color: #F7FAFC;
+      border: 1px solid #CBD5E0;
+      border-left: 4px solid var(--unemi-orange);
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+      font-family: monospace;
+      white-space: pre;
+      overflow-x: auto;
+    }
+
+    ul, ol {
+      margin-left: 24px;
+      margin-bottom: 16px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    @media print {
+      body {
+        background: #FFFFFF;
+      }
+      .document-container {
+        box-shadow: none;
+        max-width: 100%;
+        margin: 0;
+      }
+      .cover-page {
+        page-break-after: always;
+        min-height: 98vh;
+      }
+      pre {
+        background-color: #2D3748 !important;
+        color: #FFFFFF !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="document-container">
+
+  <!-- ==================== PORTADA INSTITUCIONAL UNEMI ==================== -->
+  <div class="cover-page">
+    <div class="cover-header">
+      <div class="unemi-logo-container">
+        <div class="unemi-logo-text">UNEMI</div>
+        <div class="unemi-sublogo">UNIVERSIDAD ESTATAL DE MILAGRO</div>
+      </div>
+      <div class="cover-faculty">FACULTAD DE CIENCIAS E INGENIERÍA</div>
+      <div class="cover-career">CARRERA DE INGENIERÍA DE SOFTWARE</div>
+    </div>
+
+    <div class="cover-body">
+      <div class="meta-row">
+        <div class="meta-label">TEMA:</div>
+        <div class="meta-value">Proyecto 4: Sistema AeroLista - Gestión de Reservas de Pasajes Aéreos con Listas Enlazadas Simples y Servidor Flask</div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-label">AUTORES:</div>
+        <div class="meta-value">Área de Desarrollo e Ingeniería de Software</div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-label">ASIGNATURA:</div>
+        <div class="meta-value">Estructura de Datos [ESTRUCT. DATOS]</div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-label">DOCENTE:</div>
+        <div class="meta-value">Ing. Daniel Alexander Vera Paredes</div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-label">FECHA DE ENTREGA:</div>
+        <div class="meta-value">23 de Noviembre de 2026</div>
+      </div>
+      <div class="meta-row">
+        <div class="meta-label">PERIODO:</div>
+        <div class="meta-value">Abril 2024 a Agosto 2025 / 2026 - B1</div>
+      </div>
+      <div class="cover-location">MILAGRO - ECUADOR</div>
+    </div>
+
+    <div>
+      <div class="cover-footer">
+        <div class="footer-address">
+          <strong>Cdla. Universitaria "Dr. Rómulo Minchala M."</strong>
+          Km. 1,5 vía Milagro - Virgen de Fátima.<br>
+          Milagro, Guayas, Ecuador
+        </div>
+        <div class="footer-web">
+          www.<strong>unemi</strong>.edu.ec
+        </div>
+      </div>
+      <div class="cover-bottom-bar">
+        <div class="bar-navy"></div>
+        <div class="bar-orange"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== CUERPO DEL INFORME ==================== -->
+  <div class="report-content">
+    <h1>Informe Técnico del Proyecto Nº 4</h1>
+
+    <h2>1. Datos Generales y Formativos</h2>
+    <table>
+      <tr>
+        <th style="width:30%;">Parámetro Institucional</th>
+        <th>Detalle</th>
+      </tr>
+      <tr>
+        <td><strong>Institución:</strong></td>
+        <td>Universidad Estatal de Milagro (UNEMI)</td>
+      </tr>
+      <tr>
+        <td><strong>Facultad / Carrera:</strong></td>
+        <td>Facultad de Ciencias e Ingenierías / Ingeniería de Software</td>
+      </tr>
+      <tr>
+        <td><strong>Asignatura / Nivel:</strong></td>
+        <td>Estructura de Datos / 4to Semestre Presencial</td>
+      </tr>
+      <tr>
+        <td><strong>Docente:</strong></td>
+        <td>Ing. Daniel Alexander Vera Paredes</td>
+      </tr>
+      <tr>
+        <td><strong>Producto Entregable:</strong></td>
+        <td>Paquete Comprimido <code>aerolista.zip</code> + Informe Académico</td>
+      </tr>
+    </table>
+
+    <h2>2. Objetivos del Proyecto</h2>
+    <p><strong>Objetivo General:</strong> Modelar, implementar y validar la estructura de datos dinámica de Lista Enlazada Simple (Single Linked List) para la gestión integral de reservas aéreas de 68 asientos del sistema AeroLista, garantizando la interoperabilidad con Flask y el cumplimiento del 100% (9/9) en la suite de pruebas unitarias.</p>
+    <p><strong>Objetivos Específicos:</strong></p>
+    <ul>
+      <li>Implementar los 9 métodos fundamentales sin utilizar métodos prohibidos de listas de Python (<code>list()</code>, <code>in</code>, <code>index</code>, <code>pop</code>, <code>sort</code>, <code>len()</code>).</li>
+      <li>Garantizar el correcto recorrido canónico por punteros (<code>actual = actual.next</code>).</li>
+      <li>Controlar exhaustivamente los 4 casos de desenganche de nodos en la operación de eliminación.</li>
+      <li>Conectar la memoria dinámica de la lista con la capa de persistencia JSON y los endpoints REST de Flask.</li>
+    </ul>
+
+    <h2>3. Fundamentación Técnica y Arquitectura</h2>
+    <p>Una lista enlazada simple está compuesta por vagones o nodos que se vinculan mediante punteros. Cada nodo almacena una referencia a un objeto <code>Pasajero</code> y una referencia al nodo sucesor (<code>next</code>):</p>
+    
+    <div class="diagram-box">       head
+        │
+        ▼
+   ┌──────────┬───┐    ┌──────────┬───┐    ┌──────────┬───┐
+   │ Pasajero │ o─┼───>│ Pasajero │ o─┼───>│ Pasajero │ o─┼───> None
+   │ #1005 3C │   │    │ #1002 1A │   │    │ #1009 7D │   │
+   └──────────┴───┘    └──────────┴───┘    └──────────┴───┘
+      data    next        data    next        data    next</div>
+
+    <h2>4. Implementación de los 9 Métodos en <code>lista_pasajeros.py</code></h2>
+    <p>Los métodos codificados cumplen rigurosamente con los lineamientos del proyecto:</p>
+
+    <h3>4.1 Métodos de Estado: <code>esta_vacia()</code> y <code>longitud()</code></h3>
+    <pre><code>def esta_vacia(self):
+    """Retorna True si no hay nodos en la lista; False si hay al menos uno."""
+    return self.head is None
+
+def longitud(self):
+    """Retorna la cantidad de reservas en tiempo O(1)."""
+    return self.cantidad</code></pre>
+
+    <h3>4.2 Método de Listado: <code>listar()</code></h3>
+    <pre><code>def listar(self):
+    """Retorna una list de Python con todos los Pasajeros en orden cronológico."""
+    resultado = []
+    actual = self.head
+    while actual is not None:
+        resultado.append(actual.data)
+        actual = actual.next
+    return resultado</code></pre>
+
+    <h3>4.3 Búsquedas Lineales: <code>buscar()</code>, <code>buscar_por_asiento()</code> y <code>buscar_por_cedula()</code></h3>
+    <pre><code>def buscar(self, numero):
+    actual = self.head
+    while actual is not None:
+        if actual.data.numero == numero:
+            return actual.data
+        actual = actual.next
+    return None
+
+def buscar_por_asiento(self, asiento):
+    actual = self.head
+    while actual is not None:
+        if actual.data.asiento == asiento:
+            return actual.data
+        actual = actual.next
+    return None
+
+def buscar_por_cedula(self, cedula):
+    actual = self.head
+    while actual is not None:
+        if actual.data.cedula == cedula:
+            return actual.data
+        actual = actual.next
+    return None</code></pre>
+
+    <h3>4.4 Modificación In-Situ: <code>modificar()</code></h3>
+    <pre><code>def modificar(self, numero, nuevo_nombre, nueva_edad, nuevo_asiento):
+    pasajero = self.buscar(numero)
+    if pasajero is not None:
+        pasajero.nombre = nuevo_nombre
+        pasajero.edad = nueva_edad
+        pasajero.asiento = nuevo_asiento
+        return True
+    return False</code></pre>
+
+    <h3>4.5 Eliminación Quirúrgica: <code>eliminar()</code></h3>
+    <pre><code>def eliminar(self, numero):
+    # Caso A: Lista vacía
+    if self.head is None:
+        return None
+
+    # Caso B: Eliminar la cabeza
+    if self.head.data.numero == numero:
+        eliminado = self.head.data
+        self.head = self.head.next
+        self.cantidad -= 1
+        return eliminado
+
+    # Casos C y D: Nodo intermedio, terminal o inexistente
+    anterior = self.head
+    actual = self.head.next
+    while actual is not None:
+        if actual.data.numero == numero:
+            anterior.next = actual.next
+            self.cantidad -= 1
+            return actual.data
+        anterior = actual
+        actual = actual.next
+
+    return None</code></pre>
+
+    <h3>4.6 Filtrado por Clase: <code>filtrar_por_clase()</code></h3>
+    <pre><code>def filtrar_por_clase(self, clase):
+    resultado = []
+    actual = self.head
+    while actual is not None:
+        if actual.data.clase() == clase:
+            resultado.append(actual.data)
+        actual = actual.next
+    return resultado</code></pre>
+
+    <h2>5. Resultados de las Pruebas Unitarias</h2>
+    <p>A continuación se resume la ejecución exitosa del verificador automatizado (<code>verificador.py</code>):</p>
+    <table>
+      <tr>
+        <th>Método Evaluado</th>
+        <th>Resultado</th>
+        <th>Detalle de la Prueba</th>
+        <th>Puntos</th>
+      </tr>
+      <tr>
+        <td><code>esta_vacia</code></td>
+        <td><span class="badge-ok">OK ✅</span></td>
+        <td>Evaluación con lista vacía y lista con nodos</td>
+        <td>0.25 / 0.25</td>
+      </tr>
+      <tr>
+        <td><code>longitud</code></td>
+        <td><span class="badge-ok">OK ✅</span></td>
+        <td>Verificación inmediata de <code>self.cantidad</code></td>
+        <td>0.25 / 0.25</td>
+      </tr>
+      <tr>
+        <td><code>listar</code></td>
+        <td><span class="badge-ok">OK ✅</span></td>
+        <td>Recorrido acumulador sin mutar la lista</td>
+        <td>1.00 / 1.00</td>
+      </tr>
+      <tr>
+        <td><code>buscar</code></td>
+        <td><span class="badge-ok">OK ✅</span></td>
+        <td>Búsqueda en cabeza, cuerpo, cola e inexistente</td>
+        <td>0.85 / 0.85</td>
+      </tr>
+      <tr>
+        <td><code>buscar_por_asiento</code></td>
+        <td><span class="badge-ok">OK ✅</span></td>
+        <td>Detección de ocupación de asientos</td>
+        <td>0.85 / 0.85</td>
+      </tr>
+      <tr>
+        <td><code>buscar_por_cedula</code></td>
+        <td><span class="badge-ok">OK ✅</span></td>
+        <td>Validación de cédula única</td>
+        <td>0.80 / 0.80</td>
+      </tr>
+      <tr>
+        <td><code>modificar</code></td>
+        <td><span class="badge-ok">OK ✅</span></td>
+        <td>Mutación in-situ sin mover nodos</td>
+        <td>1.00 / 1.00</td>
+      </tr>
+      <tr>
+        <td><code>eliminar</code></td>
+        <td><span class="badge-ok">OK ✅</span></td>
+        <td>Control integral de los 4 casos de desenganche</td>
+        <td>2.50 / 2.50</td>
+      </tr>
+      <tr>
+        <td><code>filtrar_por_clase</code></td>
+        <td><span class="badge-ok">OK ✅</span></td>
+        <td>Filtrado por clases Ejecutiva y Económica</td>
+        <td>0.50 / 0.50</td>
+      </tr>
+      <tr>
+        <th colspan="2">TOTAL OBTENIDO</th>
+        <th>9 / 9 Métodos Aprobados</th>
+        <th>10.0 / 10</th>
+      </tr>
+    </table>
+
+    <h2>6. Conclusiones</h2>
+    <ol>
+      <li>Las listas enlazadas simples optimizan la inserción y desasignación dinámica de memoria sin incurrir en realocaciones costosas en memoria contigua.</li>
+      <li>El manejo sistemático de punteros auxiliares (<code>anterior</code> y <code>actual</code>) permite desenganchar nodos con absoluta seguridad garantizando que no existan ciclos ni punteros huérfanos.</li>
+      <li>La arquitectura modular desacopla limpiamente la lógica algorítmica de la capa web de Flask, facilitando la mantenibilidad y la verificación automatizada del software.</li>
+    </ol>
+  </div>
+
+</div>
+
+</body>
+</html>
